@@ -19,7 +19,16 @@ object TVList {
                     0,
                     "CCTV1 综合",
                     "CCTV1",
-                    listOf("http://dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226231/index.m3u8"),
+                    listOf(
+                        "http://test.tvboxosc.cyou/ipv4_live/1/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/2/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/3/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/4/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/5/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/6/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/7/CCTV1/CCTV",
+                        "http://test.tvboxosc.cyou/ipv4_live/8/CCTV1/CCTV"
+                    ),
                     0,
                     "央视",
                     "https://resources.yangshipin.cn/assets/oms/image/202306/d57905b93540bd15f0c48230dbbbff7ee0d645ff539e38866e2d15c8b9f7dfcd.png?imageMogr2/format/webp",
