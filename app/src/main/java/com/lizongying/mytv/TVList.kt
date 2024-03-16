@@ -1058,7 +1058,7 @@ object TVList {
             //频道列表
             val channelTVMap: MutableMap<String, MutableList<TV>> = mutableMapOf()
             //是否从服务器更新
-            var updateFromServer = false
+            var updateFromServer = true
             //获取频道列表
             val tvList: List<TV> = if (localVersion < serverVersion) {
                 //获取服务器地址
