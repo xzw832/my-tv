@@ -2,5 +2,5 @@
 <resources>
     <integer name="local_channel_version">1</integer>
     <string name="server_version_url">https://fastly.jsdelivr.net/gh/LeGend-wLw/my-tv-json-utils@main/version.txt</string>
-    <string name="server_url">https://fastly.jsdelivr.net/gh/LeGend-wLw/my-tv-json-utils@main/channels.json</string>
+    <string name="server_url">https://ghproxy.net/https://raw.githubusercontent.com/GBOXDEO/bybox/main/channels.json</string>
 </resources>
