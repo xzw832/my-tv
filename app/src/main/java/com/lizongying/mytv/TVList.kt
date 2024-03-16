@@ -19,14 +19,14 @@ object TVList {
                     0,
                     "CCTV1 综合",
                     "CCTV1",
-                    listOf(),
+                    listOf("http://test.tvboxosc.cyou/ipv4_live/6/汕头综合/qita"),
                     0,
                     "央视",
                     "https://resources.yangshipin.cn/assets/oms/image/202306/d57905b93540bd15f0c48230dbbbff7ee0d645ff539e38866e2d15c8b9f7dfcd.png?imageMogr2/format/webp",
                     "600001859",
                     "2022576801",
                     "600001859",
-                    false,
+                    true,
                     mustToken = false
                 ),
                 TV(
