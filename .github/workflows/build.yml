@@ -1,6 +1,6 @@
 name: build
 
-on:
+on: 
   push:
     tags:
       - 'v*'
@@ -22,38 +22,18 @@ jobs:
           distribution: 'temurin'
 
       - name: Run build with Gradle wrapper
-        run: ./gradlew assembleRelease -PIS_SO_BUILD=false
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease -PIS_SO_BUILD=false
 
-      - name: Sign app APK
-        id: sign_app
-        uses: r0adkll/sign-android-release@v1
+      - name: Prepare App
+        run: |
+          mkdir -p ${{ github.workspace }}/apk/
+          for file in `find ~ -name "*.apk" -print`; do
+            mv "$file" ${{ github.workspace }}/apk/
+          done
+      - name: Upload App To Artifact
+        uses: actions/upload-artifact@v3
         with:
-          releaseDirectory: app/build/outputs/apk/release
-          alias: ${{ secrets.ALIAS }}
-          signingKeyBase64: ${{ secrets.KEYSTORE }}
-          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
-          keyPassword: ${{ secrets.ALIAS_PASSWORD }}
-        env:
-          # override default build-tools version (29.0.3) -- optional
-          BUILD_TOOLS_VERSION: "34.0.0"
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.sign_app.outputs.signedReleaseFile }}
-          asset_name: my-tv-${{ github.ref_name }}.apk
-          asset_content_type: application/vnd.android.package-archive
+          name: my-tv-${{ github.ref_name }}.apk
+          path: ${{ github.workspace }}/apk/*
